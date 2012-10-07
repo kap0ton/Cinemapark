@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		040C1CBA162225D900875378 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 040C1CB9162225D900875378 /* Default-568h@2x.png */; };
+		040C1CC11622275A00875378 /* ChildBrowser.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 040C1CBB1622275A00875378 /* ChildBrowser.bundle */; };
+		040C1CC21622275A00875378 /* ChildBrowserCommand.m in Sources */ = {isa = PBXBuildFile; fileRef = 040C1CBD1622275A00875378 /* ChildBrowserCommand.m */; };
+		040C1CC31622275A00875378 /* ChildBrowserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 040C1CBF1622275A00875378 /* ChildBrowserViewController.m */; };
+		040C1CC41622275A00875378 /* ChildBrowserViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 040C1CC01622275A00875378 /* ChildBrowserViewController.xib */; };
 		1D3623260D0F684500981E51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D3623250D0F684500981E51 /* AppDelegate.m */; };
 		1D60589B0D05DD56006BFB54 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; };
 		1D60589F0D05DD5A006BFB54 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D30AB110D05D00D00671497 /* Foundation.framework */; };
@@ -64,6 +68,12 @@
 
 /* Begin PBXFileReference section */
 		040C1CB9162225D900875378 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		040C1CBB1622275A00875378 /* ChildBrowser.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ChildBrowser.bundle; sourceTree = "<group>"; };
+		040C1CBC1622275A00875378 /* ChildBrowserCommand.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserCommand.h; sourceTree = "<group>"; };
+		040C1CBD1622275A00875378 /* ChildBrowserCommand.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserCommand.m; sourceTree = "<group>"; };
+		040C1CBE1622275A00875378 /* ChildBrowserViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChildBrowserViewController.h; sourceTree = "<group>"; };
+		040C1CBF1622275A00875378 /* ChildBrowserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChildBrowserViewController.m; sourceTree = "<group>"; };
+		040C1CC01622275A00875378 /* ChildBrowserViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChildBrowserViewController.xib; sourceTree = "<group>"; };
 		1D30AB110D05D00D00671497 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1D3623240D0F684500981E51 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		1D3623250D0F684500981E51 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -245,6 +255,12 @@
 		307C750510C5A3420062BCA9 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				040C1CBB1622275A00875378 /* ChildBrowser.bundle */,
+				040C1CBC1622275A00875378 /* ChildBrowserCommand.h */,
+				040C1CBD1622275A00875378 /* ChildBrowserCommand.m */,
+				040C1CBE1622275A00875378 /* ChildBrowserViewController.h */,
+				040C1CBF1622275A00875378 /* ChildBrowserViewController.m */,
+				040C1CC01622275A00875378 /* ChildBrowserViewController.xib */,
 			);
 			name = Plugins;
 			path = Cinemapark/Plugins;
@@ -382,6 +398,8 @@
 				3088BBC1154F3926009F9C59 /* Default@2x~iphone.png in Resources */,
 				3088BBC2154F3926009F9C59 /* Default~iphone.png in Resources */,
 				040C1CBA162225D900875378 /* Default-568h@2x.png in Resources */,
+				040C1CC11622275A00875378 /* ChildBrowser.bundle in Resources */,
+				040C1CC41622275A00875378 /* ChildBrowserViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,6 +430,8 @@
 				1D60589B0D05DD56006BFB54 /* main.m in Sources */,
 				1D3623260D0F684500981E51 /* AppDelegate.m in Sources */,
 				302D95F114D2391D003F00A1 /* MainViewController.m in Sources */,
+				040C1CC21622275A00875378 /* ChildBrowserCommand.m in Sources */,
+				040C1CC31622275A00875378 /* ChildBrowserViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

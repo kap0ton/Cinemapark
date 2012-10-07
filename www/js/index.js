@@ -34,6 +34,15 @@ var app = {
     // function, we must explicity call `app.receivedEvent(...);`
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        
+        this.cb = window.plugins.childBrowser;
+        
+        //if (this.cb != null) {
+        //    this.cb.onLocationChange = function(loc){ app.locChanged(loc); };
+        //    this.cb.onClose = function(){app.onCloseBrowser()};
+        //    this.cb.onOpenExternal = function(){app.onOpenExternal();};
+        //    this.cb.showWebPage("http://google.com");
+        //}
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -45,5 +54,14 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+    },
+    onCloseBrowser: function() {
+        console.log("onCloseBrowser!");
+    },
+    locChanged: function(loc) {
+        console.log("locChanged!");
+    },
+    onOpenExternal: function() {
+        console.log("onOpenExternal!");
     }
 };
