@@ -85,7 +85,8 @@ function setMainView(){
     var mName = window.localStorage.getItem('mName');
     var mId = window.localStorage.getItem('mId');
     if(mName != null && mId != null) {
-        $('#multLabel').text(mName + ' [' + mId + ']');
+        $('#multLabel').text(mName);
+        loadMovies(mId);
     }
     
     $('#selMult').click(function (e) {
@@ -96,6 +97,56 @@ function setMainView(){
                        e.preventDefault();
                        setMovieView();
                        });
+}
+
+function loadMovies(mId){
+    $.ajax({
+           type: "GET",
+           url: "http://www.cinemapark.ru/gadgets/data/movies/" + mId +"/",
+           success: loadMoviesSuccess,
+           error: loadMoviesError
+           });
+}
+
+function loadMoviesSuccess(data){
+    var items = $('data item', data);
+    //var selId = window.localStorage.getItem('mId');
+    items.each(function(){
+               var movieId = $(this).attr('id');
+               var movieName = $(this).attr('title');
+               
+               var img = $('<img>');
+               img.attr('src', 'http://stasis.www.cinemapark.ru/img/film/poster_large/' + movieId + '.jpg')
+               img.attr('class', 'movieImg');
+               
+               var a = $('<a>');
+               a.html(movieName);
+               a.attr('href','#');
+               //a.attr('mId', id)
+               a.click(function(item){
+                       //        window.localStorage.setItem('mId', $(this).attr('mId'));
+                       //        window.localStorage.setItem('mName', $(this).html());
+                       setMovieView(movieId);
+                       });
+               
+               var div = $('<div>');
+               div.attr('class', 'movieText');
+               div.html(a);
+               
+               var clr = $('<div>');
+               clr.attr('class', 'clear');
+               
+               var li = $('<li>');
+               li.append(img);
+               li.append(div);
+               li.append(clr);
+               
+               $('#movieList').append(li);
+               });
+}
+
+function loadMoviesError(){
+    alert('error');
 }
 
 /*--------------------------------------*/
@@ -122,7 +173,6 @@ function loadMultiplexes(){
     $.ajax({
            type: "GET",
            url: "http://gadget.www.cinemapark.ru/data/multiplexes/",
-           //datatype: "xml",
            success: loadMultSuccess,
            error: loadMultError
            });
@@ -130,22 +180,27 @@ function loadMultiplexes(){
 
 function loadMultSuccess(data){
     var items = $('data item', data);
+    var selId = window.localStorage.getItem('mId');
     items.each(function(){
-               var a = $('<a>');
-               a.html($(this).attr('city') + ', ' + $(this).attr('title'));
-               a.attr('href','#');
-               a.attr('mId', $(this).attr('id'))
-               a.click(function(item){
-                       window.localStorage.setItem('mId', $(this).attr('mId'));
-                       window.localStorage.setItem('mName', $(this).html());
-                       setMainView();
-                       });
+                var id = $(this).attr('id');
+                var a = $('<a>');
+                a.html($(this).attr('city') + ', ' + $(this).attr('title'));
+                a.attr('href','#');
+                a.attr('mId', id)
+                a.click(function(item){
+                        window.localStorage.setItem('mId', $(this).attr('mId'));
+                        window.localStorage.setItem('mName', $(this).html());
+                        setMainView();
+                        });
+                if (selId != null && selId == id){
+                    a.addClass('multSelected');
+                }
                
-               var li = $('<li>');
-               li.html(a);
+                var li = $('<li>');
+                li.html(a);
                
-               $('#multList').append(li);
-               });
+                $('#multList').append(li);
+                });
 }
 
 function loadMultError(){
@@ -156,13 +211,19 @@ function loadMultError(){
 /*--------------------------------------*/
 /*      Movie View                       */
 /*--------------------------------------*/
-function setMovieView(){
+function setMovieView(movieId){
     app.receivedEvent('set Movie View');
     resetContainer();
     container.html(templates['movie']);
+    
+    $('#movieImg').attr('src', 'http://stasis.www.cinemapark.ru/img/film/poster_large/' + movieId + '.jpg');
     
     $('#hrfMainView').click(function(e){
                             e.preventDefault();
                             setMainView();
                             });
+}
+
+function loadMovieDetails(){
+    
 }
